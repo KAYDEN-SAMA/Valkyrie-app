@@ -118,7 +118,7 @@ function createDialog(statut, userData){
     dialog.appendChild(shopBtn);
     
     shopBtn.addEventListener('click', () => {
-      window.location.href = "/shop/shop.html"
+      window.location.href = "/shop"
     })
     
     }
