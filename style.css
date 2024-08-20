@@ -48,7 +48,7 @@ main::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/sources/main.jpg') no-repeat center center;
+  background: url('main.jpg') no-repeat center center;
   background-size: cover;
   opacity: 0.5;
   z-index: -1;
