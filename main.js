@@ -118,7 +118,7 @@ function createDialog(statut, userData){
     dialog.appendChild(shopBtn);
     
     shopBtn.addEventListener('click', () => {
-      window.location.href = "/shop"
+      window.location.href = "/Valkyrie-app/shop"
     })
     
     }
