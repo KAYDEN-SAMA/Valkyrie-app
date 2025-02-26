@@ -95,7 +95,7 @@
     
     .offer-card {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       background-color: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(5px);
       border-radius: 10px;
@@ -104,7 +104,25 @@
       overflow: hidden;
     }
     
+    .cover-div {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    
+    .offer-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+    
     .card-content {
+      width: 50%;
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
@@ -197,8 +215,16 @@
         padding: 1rem;
       }
       
-      .card-content {
-        padding: 1rem;
+      .offer-card {
+        flex-direction: column;
+      }
+      
+      .cover-div, .card-content {
+        width: 100%;
+      }
+      
+      .cover-div {
+        padding: 15px 15px 0 15px;
       }
     }
   </style>
@@ -271,8 +297,14 @@
           
           Object.keys(offers).forEach((offerId, index) => {
             const offer = offers[offerId];
+            // Use a placeholder image if imageUrl is not provided in the database
+            const imageUrl = offer.imageUrl || '/api/placeholder/400/300';
+            
             offersHTML += `
               <div class="offer-card">
+                <div class="cover-div">
+                  <img src="${imageUrl}" alt="${offer.title}">
+                </div>
                 <div class="card-content">
                   <h3>${offer.title}</h3>
                   <p>${offer.description}</p>
@@ -298,7 +330,7 @@
       purchaseButtons.forEach(function(button) {
         button.addEventListener('click', function() {
           const offerTitle = button.dataset.title;
-          const phoneNumber = '+355684556920';
+          const phoneNumber = '+967703351617';
           const message = `مرحبا، أود طلب عرض: ${offerTitle}`;
           window.open(generateWhatsAppLink(phoneNumber, message), '_blank');
         });
