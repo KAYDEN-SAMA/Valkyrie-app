@@ -18,7 +18,7 @@
     html {
       position: relative;
       min-height: 100%;
-      background-color: #f5f5f5;
+      background-color: #fbf5f7;
     }
     
     body {
@@ -31,18 +31,19 @@
     }
     
     header {
-      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      background: linear-gradient(135deg, #f3a9c8, #f8d7e3);
       padding: 1.5rem;
       color: white;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(209, 159, 178, 0.3);
     }
     
     header h1 {
       margin: 0;
       font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     }
     
     main {
@@ -56,7 +57,6 @@
       padding: 2rem 0;
     }
     
-    /* Instead of using opacity, we use a gradient overlay */
     main::before {
       content: "";
       position: absolute;
@@ -64,7 +64,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
       z-index: 0;
     }
     
@@ -80,9 +79,10 @@
       text-align: center;
       padding: 3rem 1rem;
       margin-bottom: 2rem;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(5px);
       border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 15px rgba(209, 159, 178, 0.2);
     }
     
     #paragraph-area p {
@@ -95,7 +95,7 @@
     #paragraph-area h3 {
       display: inline-block;
       padding: 0.8rem 2rem;
-      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      background: linear-gradient(to right, #e68fac, #f8c4d9);
       color: white;
       border-radius: 30px;
       font-weight: 600;
@@ -103,12 +103,12 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(255, 126, 95, 0.4);
+      box-shadow: 0 4px 15px rgba(230, 143, 172, 0.4);
     }
     
     #paragraph-area h3:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(255, 126, 95, 0.6);
+      box-shadow: 0 6px 20px rgba(230, 143, 172, 0.6);
     }
     
     #search-area {
@@ -119,13 +119,14 @@
     .search-container {
       display: flex;
       align-items: center;
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.7);
       padding: 0.8rem 1.5rem;
       border-radius: 50px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 15px rgba(209, 159, 178, 0.2);
       width: 100%;
       max-width: 500px;
       margin: 0 auto;
+      backdrop-filter: blur(5px);
     }
     
     #search-input {
@@ -136,10 +137,11 @@
       font-family: "Alexandria", sans-serif;
       outline: none;
       background: transparent;
+      transition: border-color 0.3s ease;
     }
     
     #search-button {
-      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      background: linear-gradient(to right, #e68fac, #f8c4d9);
       color: white;
       border: none;
       border-radius: 50%;
@@ -156,12 +158,78 @@
       transform: scale(1.05);
     }
     
-    footer {
-      background-color: #333;
+    .dialog {
+      display: flex;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(5px);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 400px;
+      padding: 2rem;
+      gap: 1rem;
+      box-shadow: 0 10px 25px rgba(209, 159, 178, 0.3);
+      z-index: 100;
+    }
+    
+    .dialog p {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+    
+    .confirm-btn {
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #e68fac, #f8c4d9);
       color: white;
+      padding: 0.8rem 2rem;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      font-family: "Alexandria", sans-serif;
+    }
+    
+    .confirm-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(230, 143, 172, 0.4);
+    }
+    
+    .shop-btn {
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #e68fac, #f8c4d9);
+      color: white;
+      padding: 0.8rem 2rem;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: "Alexandria", sans-serif;
+    }
+    
+    .shop-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(230, 143, 172, 0.4);
+    }
+    
+    footer {
+      background-color: rgba(248, 215, 227, 0.8);
+      color: #333;
       text-align: center;
       padding: 1.5rem;
       margin-top: auto;
+      backdrop-filter: blur(5px);
     }
     
     footer p {
@@ -169,14 +237,35 @@
     }
     
     footer a {
-      color: #feb47b;
+      color: #e68fac;
       text-decoration: none;
       transition: color 0.3s ease;
     }
     
     footer a:hover {
-      color: #ff7e5f;
+      color: #d16b8f;
       text-decoration: underline;
+    }
+    
+    /* Cherry blossom petals animation */
+    .petal {
+      position: absolute;
+      background-color: #fff;
+      border-radius: 150% 0 150% 0;
+      animation: falling linear infinite;
+      z-index: 0;
+      opacity: 0.8;
+    }
+    
+    @keyframes falling {
+      0% {
+        top: -10%;
+        transform: rotate(0deg) translateX(0);
+      }
+      100% {
+        top: 100%;
+        transform: rotate(360deg) translateX(20px);
+      }
     }
     
     /* Responsive adjustments */
@@ -191,6 +280,11 @@
       
       .search-container {
         padding: 0.6rem 1rem;
+      }
+      
+      .dialog {
+        width: 90%;
+        padding: 1.5rem;
       }
     }
   </style>
@@ -220,5 +314,170 @@
   <footer>
     <p>كل الحقوق محفوظة <a href="https://www.instagram.com/arthur_sensai?igsh=MWdwbjI5YTluZTJyeQ==">Arthur</a></p>
   </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDtN-6_8_adIwoOsdlymqz3OQlLTIO51BA",
+        authDomain: "valkiri-app.firebaseapp.com",
+        databaseURL: "https://valkiri-app-default-rtdb.firebaseio.com",
+        projectId: "valkiri-app",
+        storageBucket: "valkiri-app.appspot.com",
+        messagingSenderId: "28209650847",
+        appId: "1:28209650847:web:65f73e68bedf8b43f516aa"
+    };
+      
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const auth = getAuth(app);
+
+    // Create cherry blossom petals
+    function createPetals() {
+      const petalCount = 15;
+      for (let i = 0; i < petalCount; i++) {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        
+        const size = Math.random() * 10 + 5;
+        const left = Math.random() * 100;
+        const delay = Math.random() * 10;
+        const duration = Math.random() * 10 + 10;
+        
+        petal.style.width = `${size}px`;
+        petal.style.height = `${size}px`;
+        petal.style.left = `${left}%`;
+        petal.style.animationDelay = `${delay}s`;
+        petal.style.animationDuration = `${duration}s`;
+        petal.style.backgroundColor = `rgba(255, ${Math.random() * 30 + 225}, ${Math.random() * 30 + 225}, ${Math.random() * 0.3 + 0.7})`;
+        
+        document.body.appendChild(petal);
+      }
+    }
+    createPetals();
+
+    async function searchUserByUsername(username) {
+      try {
+        const guildSnapshot = await get(ref(db, 'guild'));
+        if (guildSnapshot.exists()) {
+          const guildData = guildSnapshot.val();
+          for (const memberId in guildData) {
+            if (guildData[memberId].username === username) {
+              return {
+                [memberId]: guildData[memberId]
+              };
+            }
+          }
+          return null;
+        } else {
+          return null;
+        }
+      } catch (error) {
+        console.log(error);
+        return null;
+      }
+    }
+
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+
+    searchButton.addEventListener('click', () => {
+      inputLogic();
+    });
+
+    // Allow search on Enter key press
+    searchInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        inputLogic();
+      }
+    });
+
+    function inputLogic() {
+      if (searchInput.value.trim() === "") {
+        searchInput.style.borderColor = "#e68fac";
+        searchInput.style.boxShadow = "0 0 0 2px rgba(230, 143, 172, 0.5)";
+        createDialog(false);
+      } else if (searchInput.value.trim() !== "") {
+        let searchInputValue = searchInput.value.trim();
+        searchInput.style.borderColor = "#e68fac";
+        searchInput.style.boxShadow = "0 0 0 2px rgba(230, 143, 172, 0.5)";
+        
+        searchUserByUsername(searchInputValue).then((user) => {
+          if (user) {
+            searchInput.style.borderColor = "#8fce8f";
+            searchInput.style.boxShadow = "0 0 0 2px rgba(143, 206, 143, 0.5)";
+            const memberId = Object.keys(user)[0];
+            const userData = user[memberId];
+            createDialog(true, userData);
+          } else if (!user) {
+            searchInput.style.borderColor = "#e68fac";
+            searchInput.style.boxShadow = "0 0 0 2px rgba(230, 143, 172, 0.5)";
+            const userData = null;
+            createDialog(true, userData);
+          }
+        });
+      }
+    }
+
+    function createDialog(statut, userData) {
+      const searchArea = document.getElementById('search-area');
+      let searchAreaData = searchArea.innerHTML;
+      
+      let warningMessage = "أدخل اللقب أولا!";
+      let warningMessage2 = "لا يوجد عضو بهذا اللقب!";
+      
+      const dialog = document.createElement('div');
+      dialog.className = 'dialog';
+      
+      if (statut) {
+        if (userData == null) {
+          const paragraph = document.createElement('p');
+          paragraph.textContent = warningMessage2;
+          dialog.appendChild(paragraph);
+        } else {
+          const usernameParagraph = document.createElement('p');
+          const balanceParagraph = document.createElement('p');
+          const warningsParagraph = document.createElement('p');
+          const bagageParagraph = document.createElement('p');
+          const shopBtn = document.createElement('button');
+          
+          usernameParagraph.textContent = `مرحبا بك ${userData.username}`;
+          balanceParagraph.textContent = `لديك ${userData.balance} عملة`;
+          warningsParagraph.textContent = `لديك ${userData.warnings} إنذار`;
+          bagageParagraph.textContent = `السلع: ${userData.bagage}`;
+          
+          shopBtn.textContent = "المتجر";
+          shopBtn.className = 'shop-btn';
+          
+          dialog.appendChild(usernameParagraph);
+          dialog.appendChild(balanceParagraph);
+          dialog.appendChild(warningsParagraph);
+          dialog.appendChild(bagageParagraph);
+          dialog.appendChild(shopBtn);
+          
+          shopBtn.addEventListener('click', () => {
+            window.location.href = "/Valkyrie-app/shop";
+          });
+        }
+      } else if (!statut) {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = warningMessage;
+        dialog.appendChild(paragraph);
+      }
+        
+      const confirmBtn = document.createElement('button');
+      confirmBtn.textContent = "تأكيد";
+      confirmBtn.className = 'confirm-btn';
+      
+      dialog.appendChild(confirmBtn);
+      document.body.appendChild(dialog);
+      
+      confirmBtn.addEventListener('click', () => {
+        dialog.remove();
+      });
+    }
+  </script>
 </body>
 </html>
